@@ -1,0 +1,6 @@
+# Top Class Prefix
+
+Refer:
+
+* https://stackoverflow.com/questions/1866794/naming-classes-how-to-avoid-calling-everything-a-whatevermanager
+* https://stackify.com/dependency-injection/
