@@ -47,6 +47,8 @@ class Person(val firstName: String, var age: Int) {
 }
 ```
 
+// Giải thích thêm về 2 loại constructor
+
 **LAZY LOAD**
 
 Trong Kotlin sử dụng một cơ chế khởi tạo **lazy** để giảm thời gian khởi tạo một class, các biến sẽ được khởi tạo khi nó được sử dụng lần đầu tiên. Trong java hiện chưa có chức năng này.
@@ -59,7 +61,9 @@ val rect: Rect by lazy {
 
 **SINGLE-EXPRESSION FUNCTIONS**
 
-Đối với các hàm đơn giản chỉ gồm 1 dòng lệnh, với Kotlin ta có thể viết rất ngắn gọn
+Trong Java chỉ có 1 cách define 1 function. 
+
+Với Kotlin, các hàm đơn giản chỉ gồm 1 dòng lệnh,  ta có thể viết rất ngắn gọn:
 
 ```kotlin
 fun sum(x: Int, y: Int) = x + y
