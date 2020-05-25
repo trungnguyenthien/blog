@@ -12,13 +12,22 @@ Bài viết dưới đây sẽ giới thiệu một số tính năng nổi bật
 
 **DATA CLASS**
 
-Khi làm việc với các API ta cần sử dụng các Data class. Trong Kotlin chỉ cần khai báo với từ khoá "data" là xong, Kotlin sẽ tự động tạo ra các hàm "constructor", "get", "set".
-
-Nếu sử dụng java bạn phải tự động khai báo các hàm trên rất là dài dòng
+Data Class dùng để định nghĩa kiểu đối tượng chỉ chứa field và không bao gồm các phương thức xử lý. Tương tự như POJO hay DTO trong Java, nhưng Kotlin khai báo ngắn gọn hơn rất nhiều
 
 ```kotlin
-data class Employee(val name: String, val age: Int)
+data class Employee(var name: String, var age: Int)
 ```
+
+Lưu ý, Data Class không chỉ là khai báo giản lược của khai báo class thường trong kotlin
+
+```kotlin
+class Employee {
+    var name: String = ""
+    var age: Int = 0
+}
+```
+
+
 
 **DEFAULT PARAMETER**
 
@@ -59,6 +68,8 @@ val rect: Rect by lazy {
 }
 ```
 
+
+
 **SINGLE-EXPRESSION FUNCTIONS**
 
 Trong Java chỉ có 1 cách define 1 function. 
@@ -84,8 +95,7 @@ object Helper {
 ```
 
 Thì cũng tương tự static của Java thôi, có gì khác? 
-
--- KHÁC, tuy cách sử dụng như nhau nhưng `Helper` mới thật sự là một object, có thể kế thừa từ nhiều interface, còn static của Java thì không thể.
+KHÁC, tuy cách sử dụng như nhau nhưng `Helper` mới thật sự là một object, có thể kế thừa từ nhiều interface, còn static của Java thì không thể.
 
 Trường hợp bạn cần khai báo  object/method bên trong class và sử dụng như một static member trong 1 class sẵn có, cần sử dụng thêm keyword `companion` .
 
@@ -104,12 +114,12 @@ Nếu có sử dụng hàm này trong các class java thì ta thêm **@JvmStatic
 
 **COLLECTION**
 
-Collection thì không xa lạ gì với các bạn sử dụng java, tuy nhiên trong Kotlin thì nó được hỗ trợ một số lượng lớn các hàm mở rộng,  đáp ứng đầy đủ nhu cầu của chúng ta.
-Ví dụ như: **filter**, **filterNotNull****,** **map**, **flatMap**, **reverse, sorted, ....**
+Tương tự lambda được support từ Java 8, Kotlin hiển nhiên cũng cung cấp những common operation hỗ trợ xử lý array như cách viết gọn dễ hiểu hơn nhiều.
+Ví dụ như: **filter**, **filterNotNull** , **map**, **flatMap**, **reverse, sorted, ....**
 
 ```kotlin
 var list = mutableListOf(3, 6, 6, 7, 9)
-var result = list.filter {it % 3 == 0}
+var result = list.filter { it % 3 == 0 }
 print(result)
  
 // result: [3, 6, 6, 9]
