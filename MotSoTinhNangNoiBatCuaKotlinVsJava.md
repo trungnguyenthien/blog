@@ -15,19 +15,19 @@ Bài viết dưới đây sẽ giới thiệu một số tính năng nổi bật
 Data Class dùng để định nghĩa kiểu đối tượng chỉ chứa field và không bao gồm các phương thức xử lý. Tương tự như POJO hay DTO trong Java, nhưng Kotlin khai báo ngắn gọn hơn rất nhiều
 
 ```kotlin
-data class Employee(var name: String, var age: Int)
+data class DataEmployee(var name: String, var age: Int)
 ```
 
 Lưu ý, Data Class không chỉ là khai báo giản lược của khai báo class thường trong kotlin
 
 ```kotlin
-class Employee {
+class ClassEmployee {
     var name: String = ""
     var age: Int = 0
 }
 ```
 
-
+Từ 2 cách khai báo này, DataEmployee và ClassEmployee đều là reference type. Nhưng DataEmployee, vì là 1 dạng Value Object nên Kotlin đã `lén` generate thêm method `equals(Object o)` nên khi dùng operator `==` sẽ trả về true nếu tất cả các field y chang nhau.
 
 **DEFAULT PARAMETER**
 
