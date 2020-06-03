@@ -91,8 +91,11 @@ class Person(val firstName: String, var age: Int) {
 
 Với một số ngôn ngữ ta thường nhầm lẫn ý nghĩa initalize() và constructor() với nhau. Kotlin có cả 2 và lý giải rõ về chức năng nhiệm vụ của init() và các constructor(). 
 
-* Constructor() là phương thức Xây Dựng một object. Chức năng chính chỉ bao gồm đảm bảo các field đối tượng đều có value phù hợp. Trong Kotlin, đây là nhiệm vụ của Primary Constructor. Bạn không thể kèm thêm 1 xử lý ngoài lề nào vào Primary Constructor.
-* Init() phương thức Khởi tạo đối tượng, thực thi ngay sau Primary Constructor. Trong init() vẫn có thể set value cho 1 số field chưa được gán giá trị trong Primary Constructor. Thường thì đây là những field được có value được suy ra từ các field trong Primary Constructor.
+* Primary Constructor() là phương thức Xây Dựng một object. Chức năng chính chỉ bao gồm đảm bảo các field đối tượng đều có value phù hợp. Trong Kotlin, đây là nhiệm vụ của Primary. Bạn không thể kèm thêm 1 xử lý ngoài lề nào vào Primary Constructor.
+* Init() phương thức Khởi tạo đối tượng, thực thi ngay sau Primary . Trong init() vẫn có thể set value cho 1 số field chưa được gán giá trị trong Primary . Thường thì đây là những field được có value được suy ra từ các field trong Primary .
+* Secondary Constructor() là các constructor được define trong body class và được thực thi sau Init(). Cho phép custom thêm 1 số cách construct object khác, về cơ bản, thời điểm secondary được gọi thì tất cả field object đã có giá trị cả rồi, secondary chỉ update lại theo thôi.
+
+Java thì không cần phân biệt chính/thứ.
 
 ### LAZY LOAD
 
