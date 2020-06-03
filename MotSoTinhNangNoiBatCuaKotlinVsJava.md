@@ -72,7 +72,7 @@ Một số ví dụ cho việc truyền tham số đối với hàm
 
 ### CONSTRUCTOR
 
-Trong java ta có thể định nghĩa nhiều constructor dựa vào các tham số, tuy nhiên trong Kotlin chỉ có 2 constructor: **Primary constructor** và **Secondary constructor**.
+Với java ta có thể định nghĩa nhiều constructor dựa vào các tham số, tuy nhiên trong Kotlin chỉ có 2 constructor: **Primary constructor** và **Secondary constructor**.
 
 ```kotlin
 // Primary constructor
