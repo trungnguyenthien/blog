@@ -6,9 +6,9 @@
 
 Kotlin là một ngôn ngữ mới được phát triển bởi JetBrains, và đang được sử dụng rộng rãi trên cả backend và mobile. Vào ngày 7/5/2019 Google đã chính thức đưa Kotlin là một ngôn ngữ được ưu tiên khi phát triển ứng dụng Android.
 
-Đối với các bạn đã quen sử dụng Java thì Kotlin là một ngôn ngữ khá khó chịu khi tiếp cận.
+Đối với các lập trình viên vốn thân thuộc với Java thì Kotlin là một ngôn ngữ khá khó chịu khi tiếp cận bởi nhiều khái niệm cũng như các syntax khác hẳn đàn anh Java.
 
-Bài viết dưới đây sẽ giới thiệu một số tính năng nổi bật của ngôn ngữ Kotlin so với Java, hy vọng các bạn sẽ có một ấn tượng tốt đẹp về ngôn ngữ mới này.
+Bài viết dưới đây sẽ giới thiệu một số tính năng nổi bật và khác biệt của Kotlin so với ngôn ngữ tiền nhiệm.
 
 ### DATA CLASS
 
@@ -44,7 +44,7 @@ public class Person {
 
     private String name;
     private int age;
-    private int height; // cm
+    private int height; 
     
     public void addPerson(String name) {
        addPerson(name, "", "");
@@ -72,7 +72,7 @@ Một số ví dụ cho việc truyền tham số đối với hàm
 
 ### CONSTRUCTOR
 
-Trong java ta có thể định nghĩa nhiều constructor dựa vào các tham số, tuy nhiên trong Kotlin chỉ có 2 constructor: **Primary constructor** và **Secondary constructor**
+Trong java ta có thể định nghĩa nhiều constructor dựa vào các tham số, tuy nhiên trong Kotlin chỉ có 2 constructor: **Primary constructor** và **Secondary constructor**.
 
 ```kotlin
 // Primary constructor
@@ -89,7 +89,10 @@ class Person(val firstName: String, var age: Int) {
 }
 ```
 
-// Giải thích thêm về 2 loại constructor
+Với một số ngôn ngữ ta thường nhầm lẫn ý nghĩa initalize() và constructor() với nhau. Kotlin có cả 2 và lý giải rõ về chức năng nhiệm vụ của init() và các constructor(). 
+
+* Constructor() là phương thức Xây Dựng một object. Chức năng chính chỉ bao gồm đảm bảo các field đối tượng đều có value phù hợp. Trong Kotlin, đây là nhiệm vụ của Primary Constructor. Bạn không thể kèm thêm 1 xử lý ngoài lề nào vào Primary Constructor.
+* Init() phương thức Khởi tạo đối tượng, thực thi ngay sau Primary Constructor. Trong init() vẫn có thể set value cho 1 số field chưa được gán giá trị trong Primary Constructor. Thường thì đây là những field được có value được suy ra từ các field trong Primary Constructor.
 
 ### LAZY LOAD
 
