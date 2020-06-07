@@ -1,10 +1,10 @@
-# Một số tính năng nổi bật của ngôn ngữ KOTLIN so với JAVA
+# Một số tính năng nổi bật của KOTLIN so với JAVA
 
 ![02](images/02.jpg)
 
 ## INTRODUCTION
 
-Kotlin là một ngôn ngữ mới được phát triển bởi JetBrains, và đang được sử dụng rộng rãi trên cả backend và mobile. Vào ngày 7/5/2019 Google đã chính thức đưa Kotlin là một ngôn ngữ được ưu tiên khi phát triển ứng dụng Android.
+Kotlin là một ngôn ngữ mới được phát triển bởi JetBrains, và đang được sử dụng rộng rãi trên cả backend và mobile. Từ sự kiện Google I/O 2019, Google đã chính thức đưa Kotlin là một ngôn ngữ được ưu tiên khi phát triển ứng dụng Android.
 
 Đối với các lập trình viên vốn thân thuộc với Java thì Kotlin là một ngôn ngữ khá khó chịu khi tiếp cận bởi nhiều khái niệm cũng như các syntax khác hẳn đàn anh Java.
 
@@ -95,8 +95,6 @@ Với một số ngôn ngữ ta thường nhầm lẫn ý nghĩa initalize() và
 * Init() phương thức Khởi tạo đối tượng, thực thi ngay sau Primary . Trong init() vẫn có thể set value cho 1 số field chưa được gán giá trị trong Primary . Thường thì đây là những field được có value được suy ra từ các field trong Primary .
 * Secondary Constructor() là các constructor được define trong body class và được thực thi sau Init(). Cho phép custom thêm 1 số cách construct object khác, về cơ bản, thời điểm secondary được gọi thì tất cả field object đã có giá trị cả rồi, secondary chỉ update lại theo thôi.
 
-Java thì không cần phân biệt chính/thứ.
-
 ### LAZY LOAD
 
 Trong Kotlin sử dụng một cơ chế khởi tạo **lazy** để giảm thời gian khởi tạo một class, các biến sẽ được khởi tạo khi nó được sử dụng lần đầu tiên. Trong java hiện chưa có chức năng này.
@@ -109,7 +107,7 @@ val rect: Rect by lazy {
 
 ### SINGLE-EXPRESSION FUNCTIONS
 
-Trong Java chỉ có 1 cách define 1 function.
+Trong Java chỉ có 1 cách define 1 function, tuy không linh động nhưng 
 
 Với Kotlin, các hàm đơn giản chỉ gồm 1 dòng lệnh, ta có thể viết rất ngắn gọn:
 
@@ -119,7 +117,7 @@ fun sum(x: Int, y: Int) = x + y
 
 ### OBJECT và COMPANION OBJECT
 
-Các bạn chắc đã quen với việc sử dụng Singleton trong Java qua từ khóa static, tuy nhiên Kotlin mindset theo 1 cách khác. Kotlin không phải là 1 ngôn ngữ hướng đối tượng tuyệt đối như Java, C#, tất cả phải được quy về Object và Class. Thật ra, khi sử dụng `static` thì đã không có tính hướng đối tượng rồi, vậy nên Kotlin đã mạnh tay bỏ luôn `static` , thay vào đó, Kotlin cho phép khai báo một global object như sau:
+Các bạn chắc đã quen với việc sử dụng Singleton trong Java qua từ khóa static, tuy nhiên Kotlin mindset theo 1 cách khác. Kotlin không phải là 1 ngôn ngữ hướng đối tượng tuyệt đối như Java, C#, tất cả phải được quy về Object và Class. Thật ra, khi sử dụng `static` thì đã không có tính hướng đối tượng, vậy nên Kotlin đã mạnh tay bỏ luôn `static` , thay vào đó, Kotlin cho phép khai báo một global object như sau:
 
 ```kotlin
 object Helper {
@@ -160,14 +158,13 @@ print(result)
 // result: [3, 6, 6, 9]
 ```
 
-### IT vs THIS
+### THIS vs IT
 
-Khi sử dụng Kotlin thì ta hay sử dụng **this** và **it**, tuy nhiên để hiểu rõ 2 keyword này thì cũng rất là khó khăn. Phần sau sẽ giải thích để các bạn có thể hiểu rõ phần nào sự khác nhau giữa chúng
+Dù bạn đã quen với Java trước đó hay chưa, `this` trong Kotlin cũng sẽ gây một chút khó chịu khi tiếp cận, hãy lưu ý đến ngữ cảnh khi `this` được gọi:
+- Khi sử dụng trong class, thì **this** đại diện cho đối tượng hiện tại của class đó, với ngữ cảnh này thì tương tự `this` trong Java.
+- Khi sử dụng trong các hàm mở rộng hoặc biểu thức lambda, thì nó đại diện cho cái gọi là **receiver** (một đối tượng có thể chủ động gọi các hàm và thuộc tính của nó để sử dụng). 
 
-#### THIS
-
-- Khi sử dụng trong class, thì **this** đại diện cho đối tượng hiện tại của class đó
-- Khi sử dụng trong các hàm mở rộng hoặc biểu thức lambda, thì nó đại diện cho một cái gọi là **receiver,** một đối tượng có thể chủ động gọi các hàm và thuộc tính của nó để sử dụng. Ví dụ: **A.length()** thì A là một receiver.
+Ví dụ: 
 
 ```kotlin
 fun Int.foo() {
@@ -182,22 +179,34 @@ fun bar() {
 }
 ```
 
-#### IT
-
-- Chỉ sử dụng trong các hàm mở rộng hoặc biểu thức lambda , đại diện cho một **parameter/argument** truyền vào. Để bỏ qua việc đặt tên cho parameter/argument này ta sử dụng luôn keyword là **it**, tuy nhiên nếu muốn ta vẫn có thể đặt một tên khác cho nó.
+Tương tự như `this`, `it` là implicit name cho `parameter/argument` được truyền vào trong các hàm mở rộng hoặc biểu thức lambda. Tuy Kotlin vẫn cho phép đặt tên cho các tham số này, hoặc nếu thấy không cần thiết, mặc định, ta có thể dùng keyword **it** thay cho `parameter/argument` đang đề cập đến.
 
 ```kotlin
 var list = mutableListOf(3, 6, 6, 7, 9)
 list.filter {it % 3 == 0} // it chính là biến list được truyền như một tham số vào bên trong filter
 ```
 
-### STANDARD FUNCTION
+### SCOPE FUNCTION
 
-Kotlin cung cấp cho chúng ta một số hàm tiêu chuẩn như: **run(), T.run(), with(), let(), apply(), also()**. Các hàm này sử dụng cho các mục đích khác nhau, và có áp dụng **this** hoặc **it** như đã nói ở trên. Để sử dụng đúng ta cần tham khảo sơ đồ sau đây
+Kotlin cung cấp một số Scope Function (run, with, let, apply, also) giúp execute các block code theo từng object context. Việc thực thi block code trong từng scope giúp code dễ đọc hơn, mà còn giúp
+
+Kotlin cung cấp cho chúng ta một số  như: **run(), T.run(), with(), let(), apply(), also()**. Các hàm này sử dụng cho các mục đích khác nhau, và có áp dụng **this** hoặc **it** như đã nói ở trên. Để sử dụng đúng ta cần tham khảo sơ đồ sau đây
 
 ![Screen Shot 2020-03-27 at 10.14.05](images/01.png)
 
-## CONCLUSION
+## Vì sao bạn nên chuyển sang Kotlin
+
+##### Kotlin dễ đọc nhưng không dễ học 
+
+Tôi học Java rất nhanh do số lượng syntax giới hạn và bao năm qua thì Java cũng không thay đổi nhiều. Đã theo Kotlin nghĩa là bạn phải chấp nhận thay đổi nhiều hơn, cập nhật Kotlin liên tục cho những syntax bổ sung và cả thay đổi. Đôi khi project sẽ thường xuyên có task kiểu kiểu "Upgrade Kotlin v1.xxx". Nhưng đừng quá lo lắng, đa số việc migration này đã có IDEs support phần lớn rồi.
+
+##### "Linh động" hơn đi kèm với "Rules + Coding Convention" nhiều hơn
+
+Hiển nhiên, khi cả team được trao 1 công cụ mạnh mẽ có thể giải quyết vấn đề theo nhiều cách khác nhau, thì ... mỗi người sẽ làm theo 1 cách khác nhau. Khó đảm bảo giải pháp và coding style thống nhất trong cùng project. Nếu chú ý, bạn sẽ thấy coding convention của Java sẽ ít hơn rất nhiều so với Kotlin. 
+
+Nhưng đừng quá lo lắng, nếu đổi việc đọc lượng business code Java gấp 4 lần Kotlin với việc follow Kotlin Coding Convention kỹ hơn 1 tí thì tôi vẫn thấy Kotlin giá trị hơn.
+
+Không chỉ là một ngôn ngữ linh động ngắn gọn, dễ đọc hơn Java. Kotlin được tạo ra với định hướng trở thành 1 ngôn ngữ giúp tăng tốc cho các nhà phát triển.  Số dòng code Kotlin ngắn hơn nhiều lần so với ý tưởng tương đương nhưng được triển khai bằng Java.
 
 Các tài liệu có thể tham khảo thêm về Kotlin
 
