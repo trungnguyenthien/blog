@@ -1,24 +1,28 @@
 # Các loại Model trong Architecture
 
-Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. Phải nói là học sinh thời nay thì bao năng động: từ nghệ ca hát, dancing, ảo thuật,... đến những hội nhóm lập trình, điện tử, S.T.E.M luôn làm tôi bất ngờ. Và cậu học sinh mà vợ gửi gắm cũng khiến tôi hết phần ngạc nhiên. 
+Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. Phải nói thêm, học sinh thời nay thì bao năng động: từ ca hát, dancing, ảo thuật,... đến những hội nhóm lập trình, điện tử, S.T.E.M luôn làm tôi bất ngờ. Và cậu học sinh mà vợ gửi gắm cũng khiến tôi hết phần ngạc nhiên. 
 
 Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Bởi lẽ, cá nhân tôi cũng chưa chắc phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
 
 Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC hoặc MVP, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
-## Model trong MVC thuộc DataLayer hay DomainLayer?
+## Model trong MVC thuộc DataLayer hay BusinessLayer?
 
 Đáp án: Cả 2. 
 
-Định nghĩa thường thấy nhất trên Google là "Model là class chứa data và business rule của ứng dụng". 
+"Model (MVC) là class chứa data và business rule của ứng dụng" - Định nghĩa thường thấy nhất trên Google.
 
-Nếu bạn muốn thiết kế ứng dụng theo 3-layers, thì nên có định nghĩa rõ ràng hơn cho Model, 
+Với định nghĩa trên, Model object trong MVC được sử dụng với 2 chức năng:
 
-Với định nghĩa này:
+* Các Model object đóng vai trò như DTO (Data transfer object) chứa parse data từ API, hoặc từ Database --> Model thuộc DataLayer.
 
-* Vì model lưu parse data từ MySQL, thì model đang thuộc DataLayer.
+* Trong Model có thể có thêm các property/method chứa logic hiển thị theo requirement khách hàng. Ví dụ, ta đang có API trả về danh sách Product, trong mỗi Product có 3 thông tin như `giá cũ, giá mới, thời gian sale`  , trong mỗi row thông tin Product phải có đầy đủ 3 thông tin trên, lưu ý, `giá mới, % giảm giá` sẽ được hiển thị trong khung `thời gian sale` , đối với application bạn đang work, `percentDiscount, needShowDiscountInfo() ` không phải thông tin sẵn có, mà là yêu cầu thêm từ requirement, và đây là những business logic. Nếu bạn đưa thêm  `percentDiscount, needShowDiscountInfo() `  vào Product object thì vô hình chung object này đang chứa business --> Model thuộc Business Layer.
 
-* Nếu bạn tạo model để xác định nội dung render lên View, trong model có chứa một số business rule thì model thuộc DomainLayer.
+
+
+![image-20200731054455581](C:\Users\COMPUTER\Documents\blog\PhanLoaiModel.assets\image-20200731054455581.png)
+
+
 
 ## ViewModel và DataModel
 
