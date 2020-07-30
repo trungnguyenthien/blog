@@ -6,9 +6,17 @@ Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện 
 
 Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC hoặc MVP, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
-## Model trong MVC
+## Model trong MVC thuộc DataLayer hay DomainLayer
 
-Hãy thử với kiến trúc MVC tiêu biểu cho cả ứng dụng Mobile và BackEnd, Web. Các bạn lên Google search "MVC Architecture", và tham khảo đối chiếu nhiều quan điểm với nhau bạn sẽ thấy.
+Tôi chắc đã yêu đời hơn rất nhiều nếu không đặt câu hỏi này. Đáp án: Cả 2.
+
+Nếu bạn muốn thiết kế ứng dụng theo 3-tiers, thì nên có định nghĩa rõ ràng hơn cho Model, vì định nghĩa thường thấy nhất trên Google là "Model là class chứa data và business rule của ứng dụng". 
+
+Với định nghĩa này:
+
+* Vì model lưu parse data từ MySQL, thì model đang thuộc DataLayer.
+
+* Nếu bạn tạo model để xác định nội dung render lên View, trong model có chứa một số business rule thì model thuộc DomainLayer.
 
 ## ViewModel và DataModel
 
