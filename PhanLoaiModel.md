@@ -28,8 +28,8 @@ Với định nghĩa trên, Model object trong MVC được sử dụng với 2 
 
 Tôi thích MVVM không phải vì kiến trúc này phổ biến hay vì nó clean. Đơn giản vì kiến trúc này vì nó Dễ Hiểu, vì ngay trong tên kiến trúc có đề cập đến Model và ViewModel nên những người theo kiến trúc này sẽ có cái nhận định rạch ròi:
 
-* ViewModel: là những object chứa nội dung, trạng thái, behavior của View. Đối với kiến trúc của ứng dụng mobile, ViewModel dù liên quan đến giao diện, nhưng lại thuộc Domain Layer.
-* Model: chính là DataModel, là những data object được parse từ RDBMS hoặc từ Rest API hoặc từ local,... tựu chung là những data không thuộc business chính, được provide từ các Database, Repository tham gia vào business trong ViewModel và DomainModel.
+* ViewModel: là những object chứa nội dung, trạng thái, behavior của View. Đối với kiến trúc của ứng dụng mobile, ViewModel dù liên quan đến giao diện, nhưng lại thuộc Business Layer.
+* Model: chính là DataModel, là những data object được parse từ RDBMS hoặc từ Rest API hoặc từ local,... tựu chung là những data không thuộc business chính, được provide từ các Database, Repository tham gia vào business trong ViewModel và BusinessModel.
 
 *Như vậy MVC, MVP không có thành phần tương tự ViewModel à?* 
 
