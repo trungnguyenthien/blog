@@ -16,7 +16,7 @@ Với định nghĩa trên, Model object trong MVC được sử dụng với 2 
 
 * Các Model object đóng vai trò như DTO (Data transfer object) chứa parse data từ API, hoặc từ Database --> Model thuộc DataLayer.
 
-* Trong Model có thể có thêm các property/method chứa logic hiển thị theo requirement khách hàng. Ví dụ, ta đang có API trả về danh sách Product, trong mỗi Product có 3 thông tin như `giá cũ, giá mới, thời gian sale`  , trong mỗi row thông tin Product phải có đầy đủ 3 thông tin trên, lưu ý, `giá mới, % giảm giá` sẽ được hiển thị trong khung `thời gian sale` , đối với application bạn đang work, `percentDiscount, needShowDiscountInfo() ` không phải thông tin sẵn có, mà là yêu cầu thêm từ requirement, và đây là những business logic. Nếu bạn đưa thêm  `percentDiscount, needShowDiscountInfo() `  vào Product object thì vô hình chung object này đang chứa business --> Model thuộc Business Layer.
+* Trong Model có thể có thêm các property/method chứa logic hiển thị theo requirement khách hàng. Ví dụ, ta đang có API trả về danh sách Product, trong mỗi Product có 3 thông tin như `giá cũ, giá mới, thời gian sale`  , trong mỗi row Product phải hiển thị đầy đủ 3 thông tin trên, lưu ý, `giá mới, % giảm giá` sẽ được hiển thị trong khung `thời gian sale` . Do đó, đối với application bạn đang work, `percentDiscount, needShowDiscountInfo() ` không phải thông tin sẵn có từ API, mà là yêu cầu thêm từ requirement, và đây là những business logic. Nếu bạn đưa thêm  `percentDiscount, needShowDiscountInfo() `  vào Product object thì vô hình chung object này đang chứa business --> Model thuộc Business Layer.
 
 
 
