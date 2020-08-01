@@ -1,16 +1,16 @@
 # Các loại Model trong Architecture
 
-Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. Phải nói thêm, học sinh thời nay thì bao năng động: từ ca hát, dancing, ảo thuật,... đến những hội nhóm lập trình, điện tử, S.T.E.M luôn làm tôi bất ngờ. Và cậu học sinh mà vợ gửi gắm cũng khiến tôi hết phần ngạc nhiên. 
-
-Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Bởi lẽ, cá nhân tôi cũng chưa chắc phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
+Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
 
 Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC hoặc MVP, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
 ## Model trong MVC thuộc DataLayer hay BusinessLayer?
 
-Đáp án: Cả 2. 
+Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu.
 
-"Model (MVC) là class chứa data và business rule của ứng dụng" - Định nghĩa thường thấy nhất trên Google.
+
+
+> "Model (MVC) là class chứa data và business rule của ứng dụng" - Định nghĩa thường thấy nhất trên Google.
 
 Với định nghĩa trên, Model object trong MVC được sử dụng với 2 chức năng:
 
