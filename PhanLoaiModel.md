@@ -2,15 +2,19 @@
 
 Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. 
 
-Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
+Bạn ấy sử dụng C# để viết ứng dụng Windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. 
 
-Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC hoặc MVP, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
+Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
-## Model và những biến thể?
+## Model & Những biến thể MVC
 
-Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu. Bạn không nghe nhầm đâu, MVC từ 1979 khi được giới thiệu bởi  **Trygve Reenskaug** đến nay đã trải qua khá nhiều biến thể. Tham khảo http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc, thật ra còn nhiều nhiều biến thể nữa). Vấn đề khó chịu là tất cả những biến thể này đều lấy tên chung là MVC. 
+Bạn không nghe nhầm đâu. Từ 1979, MVC được **Trygve Reenskaug** giới thiệu đến nay đã trải qua khá nhiều biến thể. 
 
-Tôi ngày xưa đẹp trai, hiếu học mỗi tội khù khờ, cứ lên google search "MVC Architecture" mà đọc cho kỳ hết, đến tẩu hỏa nhập ma, mỗi trang nói mỗi kiểu. Cứ nghĩ là do cách diễn đạt khác nhau thôi, chứ ngờ đâu nó khác thiệt T_T. Không biết có ai đồng cảnh ngộ vậy không! Có lẽ vì lý do đó mà về sau, người ta cố tình đặt tên khác nhau dù ý nghĩa các thành phần chỉ khác nhau đôi chút, như MVI, MVP, MVT, MVVM,... Và sau kinh nghiệm đau thương ấy, tôi không lựa chọn học Architecture Pattern, mà tôi chọn theo Architecture Principles (Những nguyên tắc về kiến trúc)
+> Tham khảo http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc, thật ra còn nhiều nhiều biến thể nữa). 
+
+Tôi ngày xưa đẹp trai, hiếu học mỗi tội khù khờ, cứ lên google search "MVC Pattern" mà đọc cho kỳ hết, đến tẩu hỏa nhập ma, mỗi trang giải thích mỗi kiểu. Cứ nghĩ là do cách diễn đạt khác nhau thôi, chứ ngờ đâu nó khác thiệt T_T (Không biết có ai đồng cảnh ngộ vậy không)
+
+Vấn đề là tất cả những biến thể này đều lấy tên là MVC,  nhưng chức năng mỗi thành phần trong kiến trúc lại nhiều khác biệt. Bài viết này chỉ giới hạn phân tích về Model trong MVC dùng cho Android, iOS.
 
 
 
