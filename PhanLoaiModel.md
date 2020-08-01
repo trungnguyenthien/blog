@@ -1,12 +1,20 @@
 # Các loại Model trong Architecture
 
-Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
+Một lần, tôi được vợ nhờ review sản phẩm của cậu học trò, chẳng là trường cấp 3 thường có những cuộc thi sáng tạo nho nhỏ. 
+
+Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện trình bày ý tưởng). Giao diện tốt, chức năng đầy đủ, cũng crash đôi lần nhưng với một cậu học sinh 15t thì thế là quá ổn. Source code ... cũng tốt hơn tôi lúc mới ra trường. Nói thẳng là kiến trúc cũng rõ ràng, cũng có View và Model hẳn hoi mặc dù cậu ấy thường nhập nhằng chức năng giữa các layer với nhau. Thế là được rồi. **"Có ý niệm phân chia thế là đã ổn rồi"** - tôi tự nhủ. Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. 
 
 Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC hoặc MVP, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
 ## Model trong MVC thuộc DataLayer hay BusinessLayer?
 
-Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu.
+Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu. Bạn không nghe nhầm đâu, MVC từ 1979 khi được giới thiệu bởi  **Trygve Reenskaug** đến nay đã trải qua khá nhiều biến thể (không bàn đến các chi nhánh MVP, MVI đâu nha).  (Tham khảo http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc, thật ra còn nhiều nhiều biến thể nữa). Vấn đề khó chịu là tất cả những biến thể này đều lấy tên chung là MVC. 
+
+Tôi ngày xưa đẹp trai, hiếu học mỗi tội khù khờ, cứ lên google search "MVC Architecture" mà đọc cho kỳ hết, đến tẩu hỏa nhập ma, mỗi trang nói mỗi kiểu. Cứ nghĩ là do cách diễn đạt khác nhau thôi, chứ đâu ngờ nó khác thiệt T_T. Không biết có ai đồng cảnh ngộ vậy không! 
+
+
+
+
 
 
 
