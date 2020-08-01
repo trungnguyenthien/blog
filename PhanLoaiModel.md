@@ -8,9 +8,9 @@ Bạn ấy sử dụng C# để viết ứng dụng windows (tôi không tiện 
 
 ## Model trong MVC thuộc DataLayer hay BusinessLayer?
 
-Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu. Bạn không nghe nhầm đâu, MVC từ 1979 khi được giới thiệu bởi  **Trygve Reenskaug** đến nay đã trải qua khá nhiều biến thể (không bàn đến các chi nhánh MVP, MVI đâu nha).  (Tham khảo http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc, thật ra còn nhiều nhiều biến thể nữa). Vấn đề khó chịu là tất cả những biến thể này đều lấy tên chung là MVC. 
+Đáp án: - Tùy vào biến thể MVC mà bạn đang hiểu. Bạn không nghe nhầm đâu, MVC từ 1979 khi được giới thiệu bởi  **Trygve Reenskaug** đến nay đã trải qua khá nhiều biến thể. Tham khảo http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc, thật ra còn nhiều nhiều biến thể nữa). Vấn đề khó chịu là tất cả những biến thể này đều lấy tên chung là MVC. 
 
-Tôi ngày xưa đẹp trai, hiếu học mỗi tội khù khờ, cứ lên google search "MVC Architecture" mà đọc cho kỳ hết, đến tẩu hỏa nhập ma, mỗi trang nói mỗi kiểu. Cứ nghĩ là do cách diễn đạt khác nhau thôi, chứ đâu ngờ nó khác thiệt T_T. Không biết có ai đồng cảnh ngộ vậy không! 
+Tôi ngày xưa đẹp trai, hiếu học mỗi tội khù khờ, cứ lên google search "MVC Architecture" mà đọc cho kỳ hết, đến tẩu hỏa nhập ma, mỗi trang nói mỗi kiểu. Cứ nghĩ là do cách diễn đạt khác nhau thôi, chứ ngờ đâu nó khác thiệt T_T. Không biết có ai đồng cảnh ngộ vậy không! Có lẽ vì lý do đó mà về sau, người ta cố tình đặt tên khác nhau dù ý nghĩa các thành phần chỉ khác nhau đôi chút, như MVI, MVP, MVT, MVVM,... Và sau kinh nghiệm đau thương ấy, tôi không lựa chọn học Architecture Pattern, mà tôi học theo Architecture Principles (Những nguyên tắc về kiến trúc)
 
 
 
@@ -39,13 +39,11 @@ Tôi thích MVVM không phải vì kiến trúc này phổ biến hay vì nó cl
 * ViewModel: là những object chứa nội dung, trạng thái, behavior của View. Đối với kiến trúc của ứng dụng mobile, ViewModel dù liên quan đến giao diện, nhưng lại thuộc Business Layer.
 * Model: chính là DataModel, là những data object được parse từ RDBMS hoặc từ Rest API hoặc từ local,... tựu chung là những data không thuộc business chính, được provide từ các Database, Repository tham gia vào business trong ViewModel và BusinessModel.
 
-*Như vậy MVC, MVP không có thành phần tương tự ViewModel à?* 
 
-- À có, trong MVC, đôi khi một số dev định nghĩa thêm một số class với chức năng mô tả View, tôi xem đó cũng là 1 dạng ViewModel. 
 
 *Không nên đem DataModel render trực tiếp lên View.* 
 
 - Thỉnh thoảng tôi review thấy các dev parse DataModel xong thì nhét vào ArrayList trong ViewModel, chờ ngày được render lên View, rồi thuyết phục nhau rằng **"Y nhau cả, tạo thêm class ViewModel cho đối tượng ấy làm gì cho lắm code."** - Code nhiều hay ít không đánh giá chất lượng kiến trúc. Kiến trúc được sinh ra và chuẩn hóa dần dựa trên tiêu chí **"Separation Of Concern"**, DataModel (Data Layer) thì đừng đem mix với ViewModel (Domain Layer). Developer cũng đâu thích việc Database thay đổi structure lại impact đến ViewModel, còn customer cũng đâu muốn giai đoạn implement View/ViewModel lại phụ thuộc nhiều vào API còn chưa hoàn thiện. Ít code kiểu này hóa ra lại làm chậm tiến độ.
 
-## DomainModel và Entity
+## 
 
