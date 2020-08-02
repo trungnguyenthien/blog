@@ -6,17 +6,30 @@ Bạn ấy sử dụng C# để viết ứng dụng Windows (tôi không tiện 
 
 Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
-## Business Rule là gì?
+## Business Object, Business Rule, Business Logic
 
-Business Rule (BR) hay các nguyên tắc nghiệp vụ trong yêu cầu khách hàng. Ở khâu Class Design thì lấy việc xác định BR trong requirement là tiền đề. Ví như việc chúng ta đưa ra các mẫu pattern MVC, MVVM và ấn định xử lý này, xử lý nọ phải đặt trong Model hay ViewModel còn việc hiển thị thì thuộc về View.
+Kinh nghiệm của tôi khi tìm hiểu về các loại Object là nên phân tích theo đặc tính, chức năng, nguồn gốc của object (vì 1 object có thể là 1 hoặc nhiều loại mà):
+
+* Data Transfer Object (DTO): Là những object được mapping từ database hoặc api (từ Data Layer)
+* Entity Object: là những object có định danh
+* Value Object:
+* Business Object:
+* Domain Object:
+
+ là 1 entity object (1 thực thể, có định danh duy nhất trong domain) như Product, Account, Invoice, Transaction, ... Đương nhiên không phải object nào cũng là Business Object, ví dụ như Colour, Point, Age, Name (with FirstName, LastName, Title),... vì không có định danh nên không phảu là Busines Object, chúng chỉ thuần là những Data, Value Object.
+
+
+
+BL tập trung vào cách 
+
+BR hay các nguyên tắc nghiệp vụ trong yêu cầu khách hàng. Ở khâu Class Design thì lấy việc xác định, phân loại statement (phát biểu) trong requirement là tiền đề. Ví như việc chúng ta đưa ra các mẫu pattern MVC, MVVM và ấn định xử lý này, xử lý nọ phải đặt trong Model hay ViewModel còn việc hiển thị thì thuộc về View.
 
 Như vậy, chúng ta phải định nghĩa BR thế nào cho sang:
 
 * Không phải statement nào trong REQ đều là BR. Vd: Ly cafe này giá 30k. Ngày nào cũng thế, ai uống mua cũng bán đúng 1 giá đó. Thế thì đây không phải là BR, mấy ông BA cũng không nghề ngỗng gì với cái REQ này được.
+* BR là những statement có tính constraint, logic để dẫn đến những quyết định khác nhau. Đơn giản hơn, BR là những statement đại loại như: Nếu... thì..., Trường hợp là ... thì phải...., Chỉ...., Đặc biệt..., Phải (Must)....,. v..v BR cho biết khi nào bạn cần và không được làm gì. Vd: Ngày trong tuần ly cafe này giá 30k, ngày lễ tăng 15%, khách VIP bớt bớt 10%, trai xinh gái đẹp thì bớt thêm 5% nữa, nếu cafe mà có topping thì ... kiểu kiểu như vậy gọi là BR.
 
-* BR là những statement có tính constraint, logic để dẫn đến những quyết định khác nhau. Đơn giản hơn, BR là những statement đại loại như: Nếu... thì..., Trường hợp là ... thì phải...., Chỉ...., Đặc biệt..., Phải (Must)....,. v..v BR cho biết khi nào bạn cần và không được làm gì. Vd: Ngày trong tuần ly cafe này giá 30k, ngày lễ tăng 15%, khách VIP bớt bớt 10%, trai xinh gái đẹp thì bớt thêm 5% nữa, nếu cafe mà có topping thì ... kiểu kiểu như vậy thì mới gọi là BR.
 
-Đấy là nói theo ngôn ngữ BA, còn giải thích theo ngôn ngữ coder thì là: BR là những statement có chứa `if...else..., switch...case..., toán tử logic`.
 
 #### Xác định BR có ý nghĩa thế nào với developer
 
