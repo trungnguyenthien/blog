@@ -6,7 +6,33 @@ Bạn ấy sử dụng C# để viết ứng dụng Windows (tôi không tiện 
 
 Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà định nghĩa đôi khi quá mơ hồ. Điển hình là Model - 1 thành phần trong kiến trúc xuất hiện nhiều trong các pattern MVC, MVP, MVVM,...  Tôi để ý rằng, khi vấn đáp ứng viên về kiến trúc MVC, khi được hỏi **"View là gì?"** mọi người đều trả lời na ná nhau, nhưng khi hỏi **"Model là gì?"** thì câu trả lời lại rất khác ??? 
 
-## Model & Những biến thể MVC
+## Business Rule là gì?
+
+Business Rule (BR) hay các nguyên tắc nghiệp vụ trong yêu cầu khách hàng. Ở khâu Class Design thì lấy việc xác định BR trong requirement là tiền đề. Ví như việc chúng ta đưa ra các mẫu pattern MVC, MVVM và ấn định xử lý này, xử lý nọ phải đặt trong Model hay ViewModel còn việc hiển thị thì thuộc về View.
+
+Như vậy, chúng ta phải định nghĩa BR thế nào cho sang:
+
+* Không phải statement nào trong REQ đều là BR. Vd: Ly cafe này giá 30k. Ngày nào cũng thế, ai uống mua cũng bán đúng 1 giá đó. Thế thì đây không phải là BR, mấy ông BA cũng không nghề ngỗng gì với cái REQ này được.
+
+* BR là những statement có tính constraint, logic để dẫn đến những quyết định khác nhau. Đơn giản hơn, BR là những statement đại loại như: Nếu... thì..., Trường hợp là ... thì phải...., Chỉ...., Đặc biệt..., Phải (Must)....,. v..v BR cho biết khi nào bạn cần và không được làm gì. Vd: Ngày trong tuần ly cafe này giá 30k, ngày lễ tăng 15%, khách VIP bớt bớt 10%, trai xinh gái đẹp thì bớt thêm 5% nữa, nếu cafe mà có topping thì ... kiểu kiểu như vậy thì mới gọi là BR.
+
+Đấy là nói theo ngôn ngữ BA, còn giải thích theo ngôn ngữ coder thì là: BR là những statement có chứa `if...else..., switch...case..., toán tử logic`.
+
+#### Xác định BR có ý nghĩa thế nào với developer
+
+Như tôi đã nói ở trên, không xác định được BR thì tổ chức code hợp lý được. Chúng ta kiến trúc source code theo MVC, MVVM chẳng phải là đang tìm các tổ chức các xử lý hợp lý, dễ maintain hơn sao.
+
+
+
+
+
+## MVC's Model
+
+
+
+
+
+
 
 Bạn không nghe nhầm đâu. Từ 1979, MVC được **Trygve Reenskaug** giới thiệu đến nay đã trải qua khá nhiều biến thể. 
 
