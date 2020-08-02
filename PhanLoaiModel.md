@@ -8,15 +8,15 @@ Cá nhân tôi cũng không phân định rạch ròi các khái niệm mà đ�
 
 ## Business Object, Business Rule, Business Logic
 
-Kinh nghiệm của tôi khi tìm hiểu về các loại Object là nên phân tích theo đặc tính, chức năng, nguồn gốc của object (vì 1 object có thể là 1 hoặc nhiều loại mà):
+Kinh nghiệm của tôi khi tìm hiểu về các loại Object là nên phân tích theo **đặc tính**, **chức năng**, **nguồn gốc** của object (vì 1 object có thể là 1 hoặc nhiều loại):
 
 * Data Transfer Object (DTO): Là những object được mapping từ database hoặc api (từ Data Layer)
-* Entity Object: là những object có định danh
-* Value Object:
-* Business Object:
-* Domain Object:
+* Entity Object: là những object có định danh như Account, Product, Invoice, Transaction,... tất cả những đối tượng này đều hướng về 1 thực thể duy nhất. Mỗi entity có thể có quan hệ 1-1 hoặc 1-n với các entity khác.
+* Value Object:  ngược lại với Entity, Value là những object không có tính định danh, mỗi value object có thể thuộc nhiều Entity (vd: Point, Name, Value). Value Object không có chứa Business.
+* Business Object: là object tham gia trong Business Layer. Vd, ta cần làm chức năng Add Cart, output của chúng ta là Order thì chắc rồi, nhưng để compose được 1 order thì cần tham gia của nhiều đối tượng khác như loại sản phẩm, số lượng tồn, số lượng đặt, thông tin về kho, đơn vị vận chuyển,...
+* Domain Object: thường được hiểu là tương tự như Business Object nhưng phạm vi của Domain rộng hơn. Business thiên về service, chức năng, Domain là 1 lĩnh vực bao quát. Vd: ta có domain Shopping, nhưng có business về Search, Campaign,....
 
- là 1 entity object (1 thực thể, có định danh duy nhất trong domain) như Product, Account, Invoice, Transaction, ... Đương nhiên không phải object nào cũng là Business Object, ví dụ như Colour, Point, Age, Name (with FirstName, LastName, Title),... vì không có định danh nên không phảu là Busines Object, chúng chỉ thuần là những Data, Value Object.
+
 
 
 
