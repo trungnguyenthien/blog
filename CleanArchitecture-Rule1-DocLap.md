@@ -8,7 +8,7 @@ Bạn có thể tìm 1 kiến trúc đơn giản hơn, hoặc nếu yên tâm s�
 
 ##### 🐙"Vậy Clean có ý nghĩa gì với dự án của bạn?"
 
-Đó là SỰ ỔN ĐỊNH. Không chậm, không nhanh. Là 1 sự cân bằng ổn định. Chí ít, đây là những cảm nhận từ cá nhân tôi với các dự án TBV đã áp dụng thành công Clean. Các module trong dự án gần như có thể phát triển độc lập mà không chờ đợi nhau, hoặc ít có sự impact ngoài kiểm soát góp phần giúp team đạt được các estimation tương đối chính xác. 
+Đó là SỰ ỔN ĐỊNH. Không chậm, không nhanh. Là 1 sự cân bằng. Chí ít, đây là những cảm nhận từ cá nhân tôi với các dự án TBV đã áp dụng thành công Clean. Các module trong dự án gần như có thể phát triển độc lập mà không chờ đợi nhau, hoặc ít có sự impact ngoài kiểm soát góp phần giúp team đạt được các estimation tương đối chính xác. 
 
 Trướt hết, Clean không phải là 1 Pattern (như MVC, MVVM) , mà là tập hợp những kinh nghiệm, nguyên tắc để xây dựng phần mềm dễ bảo trì, dễ điều tra lại những business trước và quan trọng nhất là apdapt tốt với những thay đổi, với mỗi yêu cầu mới chúng ta có thể dễ control phạm vi impact giữa các tính năng. Sẽ rất hợp lý khi xem Clean như 1 tiêu chuẩn đánh giá chất lượng source code
 
@@ -22,5 +22,23 @@ Và khi  cho rằng Rules này là rào cản, hãy nhìn lại các Targets và
 
 Chúng ta bắt đầu với Target đầu tiên: 
 
-# TÍNH ĐỘC LẬP
+# TÍNH ĐỘC LẬP - *Independent Value*
 
+Kiến trúc Clean không ràng buộc về Pattern, nhưng ràng buộc về tiêu chuẩn, pattern phải đáp ứng được các giá trị sau:
+
+- Độc lập về UI: Triết lý của Clean, không phân biệt bạn đang viết application mobile, winform, web site,... nếu bạn có thể giữ nguyên toàn bộ code business, thay phần xử lý render UI trên Android thành render HTML cho website dễ dàng thì bạn thành công. 
+- Độc lập về DataSource: Một lần nữa, kiến trúc Clean cũng không quan tâm đến DataSource, tương tự như việc Độc lập UI, Application có thể từ access local database có thể swap đến 1 nguồn khác như APIs 1 cách đơn giản.
+
+Kinh nghiệm của tôi là N lần thất bại trong việc giải thích giá trị này đến các đồng đội, tôi cũng thuộc làu các phản hồi như: 
+
+* "Thế khi nào chúng ta cần swap database..."
+
+* "Việc migration UI như bạn nói sẽ không bao giờ xảy ra..."
+
+* "Không nên lo xa quá, khi nào đến hẵng hay..."
+
+Như lúc nào đó tôi đã từng nói, bản thân kiến trúc tốt không phải là code 1 cách thực dụng. Code tốt là gì? Là không Nợ Kỹ Thuật, không phải refactor nhiều, impact lớn cho một thay đổi nhỏ. Tôi không khuyến khích bạn phải lo xa, code trước khi cần, cái ta chỉ cần 1 sự mềm dẻo, linh động. Khi bạn quá quan tâm vào "khi nào mới cần..." sẽ là 1 rào cản để code tốt hơn.
+
+Tuy khó có thể trả lời thắc mắc "Khi nào mới cần ..." nhưng, với tôi thì những thay đổi tương tự ấy có cái sắp xảy ra, có cái đã xảy ra.
+
+Nếu bạn đang làm iOS thì hot trend thời điểm này là SwiftUI, đây là 1 hệ thống UI hoàn toàn mới, tuy có 1 phần core từ hệ thống UIKit, nhưng cách implement thì hoàn toàn khác, nếu cần thay thế UI từ UIKit sang SwiftUI mà không có sự độc lập UI từ trước thì gần như đập bỏ View ấy đi làm lại.
