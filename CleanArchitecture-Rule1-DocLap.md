@@ -26,19 +26,25 @@ Chúng ta bắt đầu với Target đầu tiên:
 
 Kiến trúc Clean không ràng buộc về Pattern, nhưng ràng buộc về tiêu chuẩn, pattern phải đáp ứng được các giá trị sau:
 
-- Độc lập về UI: Triết lý của Clean, không phân biệt bạn đang viết application mobile, winform, web site,... nếu bạn có thể giữ nguyên toàn bộ code business, thay phần xử lý render UI trên Android thành render HTML cho website dễ dàng thì bạn thành công. 
+- Độc lập về UI: Triết lý của Clean, không phân biệt bạn đang viết application mobile, winform, web site,... nếu bạn có thể giữ nguyên toàn bộ code business, thay phần xử lý render UI trên Android sang iOS dễ dàng thì bạn thành công. 
 - Độc lập về DataSource: Một lần nữa, kiến trúc Clean cũng không quan tâm đến DataSource, tương tự như việc Độc lập UI, Application có thể từ access local database có thể swap đến 1 nguồn khác như APIs 1 cách đơn giản.
 
-Kinh nghiệm của tôi là N lần thất bại trong việc giải thích giá trị này đến các đồng đội, tôi cũng thuộc làu các phản hồi như: 
+Kinh nghiệm của tôi là không dễ giải thích các giá trị này, tôi cũng thuộc làu các phản hồi như: 
 
-* "Thế khi nào chúng ta cần swap database..."
+* "Thế khi nào chúng ta cần swap Database..."
 
 * "Việc migration UI như bạn nói sẽ không bao giờ xảy ra..."
 
 * "Không nên lo xa quá, khi nào đến hẵng hay..."
 
-Như lúc nào đó tôi đã từng nói, bản thân kiến trúc tốt không phải là code 1 cách thực dụng. Code tốt là gì? Là không Nợ Kỹ Thuật, không phải refactor nhiều, impact lớn cho một thay đổi nhỏ. Tôi không khuyến khích bạn phải lo xa, code trước khi cần, cái ta chỉ cần 1 sự mềm dẻo, linh động. Khi bạn quá quan tâm vào "khi nào mới cần..." sẽ là 1 rào cản để code tốt hơn.
+Như lúc nào đó tôi đã từng nói, bản thân kiến trúc tốt không phải là code 1 cách thực dụng. Code tốt là gì? Không Nợ Kỹ Thuật, không phải refactor nhiều, impact lớn cho một thay đổi nhỏ (đương nhiên, refactor nhỏ là tất yếu)
 
-Tuy khó có thể trả lời thắc mắc "Khi nào mới cần ..." nhưng, với tôi thì những thay đổi tương tự ấy có cái sắp xảy ra, có cái đã xảy ra.
+Tôi không khuyến khích bạn phải lo xa, code trước khi cần (trừ khi bạn có ý gây shock cho khách hàng), cái ta chỉ cần 1 sự mềm dẻo, linh động. Khi bạn quá quan tâm vào "khi nào mới cần..." sẽ là 1 rào cản để code tốt hơn.
+
+Tuy khó để trả lời thắc mắc "Khi nào mới cần ..." nhưng, với tôi thì những thay đổi tương tự ấy có cái sắp xảy ra, có cái đã xảy ra.
+
+Ngay thời điểm tôi viết bài này, Kotlin đã support build 
 
 Nếu bạn đang làm iOS thì hot trend thời điểm này là SwiftUI, đây là 1 hệ thống UI hoàn toàn mới, tuy có 1 phần core từ hệ thống UIKit, nhưng cách implement thì hoàn toàn khác, nếu cần thay thế UI từ UIKit sang SwiftUI mà không có sự độc lập UI từ trước thì gần như đập bỏ View ấy đi làm lại.
+
+Khi tôi mới ra nghề, tôi có làm vài dự án từ điển offline, nhưng giờ đa phần là search online 
