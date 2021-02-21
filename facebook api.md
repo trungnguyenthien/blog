@@ -1,0 +1,4 @@
+#### GET ALL GROUP
+https://graph.facebook.com/me/groups?access_token=EAAAAZAw4FxQIBABUdvYx8VAHsXrZC3qXRTXUTKIeHZBwlU12AZB8cB2TRnBmyNGSKWtcWZAZAvd9lRUJ5PFee0WVSOzfojEUmLSYnGj1twYQs58SbzXhCERASu4hgbdn2XJc5Kq89NfvJp9pN4PlYMuvvFbZBulKxeIilVGVUkOJgZDZD
+
+
