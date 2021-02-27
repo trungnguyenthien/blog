@@ -2,7 +2,7 @@
 
 ![Kết quả hình ảnh cho anh đếch cần gì nhiều ngoài em](https://i.ytimg.com/vi/KdrbBJNFwGw/maxresdefault.jpg)
 
-#### Nguyên tắc YAGNI,  thật dễ hiểu ...
+#### 🔥 Nguyên tắc YAGNI,  thật dễ hiểu ...
 
 YAGNI có từ thời phương pháp lập trình XP ([ExtremeProgramming](https://martinfowler.com/bliki/ExtremeProgramming.html)) vào những năm 90, trước khi Scrum nổi lên như một hiện tượng. XP là 1 phương pháp chú trọng tốc độ phát triển trong đó YAGNI được xem nguyên tắc tâm pháp quan trọng. "**Đừng giả định và xây dựng trước các Tính năng phần mềm trước khi chúng ta thực sự cần nó**" là 1 phát biểu tương đối đầy đủ hơn "You Aren't Gonna Need It". 
 
@@ -16,9 +16,9 @@ May mắn là có khi tôi cũng đúng, nhưng vẫn có vài tính năng chờ
 
 Lý do tôi viết bài này, là khi tôi tìm hiểu về YAGNI, có khá nhiều nhầm lẫn về "Nguyên tắc vàng" này. 
 
-#### ... nhưng cũng dễ nhầm.
+#### 🔥... nhưng cũng dễ nhầm.
 
-> "Anh Đếch cần gì nhiều ngoài em" - Câu này chỉ dùng để tỏ tình thôi, còn thực tế ai cũng biết là không phải mà. YAGNI cũng vậy.
+> "Anh đếch cần gì nhiều ngoài em" - Câu này chỉ dùng để tỏ tình thôi, còn thực tế ai cũng biết là không phải mà. YAGNI cũng vậy.
 
 Một lần, tôi được đồng nghiệp chia sẻ về nguyên tắc của cậu ấy. Cậu ta nhận mình theo trường phái YAGNI, đơn giản tất cả vấn đề về source code, tính năng vừa đủ , kiến trúc tối giản hết mức: Không cần flexible, không dự trù vấn đề busniess sẽ phát triển, yêu cầu đến đâu thì kiến trúc đến đó. 
 
@@ -34,7 +34,7 @@ YAGNI không phải lời biện minh cho việc bỏ qua sự rõ ràng, linh h
 
 Trên thực tế, nguyên tắc này "vô tội", chính vì XP chú trọng tốc độ phát triển, yêu cầu source càng phải dễ thay đổi, thêm chức năng mới 1 cách dễ dàng với chi phí thấp.
 
-#### Tôi ủng hộ YAGNI, nhưng ...
+#### 🔥Tôi ủng hộ YAGNI, nhưng ...
 
 Quan điểm của tôi hoàn toàn ủng hộ YAGNI, không có gì sai với tư tưởng "thực dụng": "Khách yêu cầu đến đâu thì xây dựng đến đó".
 
