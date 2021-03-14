@@ -39,13 +39,13 @@ Don't be afraid because there are similiar topic in Google, We are welcome refer
 
 For the reader who knew and applied this technique in real project, we should share our experiences in real project:
 * When/Why you should/shouldn't apply this technique in your project.
-* The Difficulties in application this techique in real project.
-* Compare/Consider to the similar techniques.
+* The Difficulties in applying this techique in real project.
+* Comparing/Considering to the similar techniques.
 
 Don't be afraid of there are someone's opinion (flip side opinion). This is your experience, did you try it on your real project? Did you get your teamate's encourage? In other hand, the flip side opinion may be a good advise to fullfill your knowledge.
 ```
 
-It's just my thought. Please speak out your ideas.
+It's just my thought. Could you please advise me?
 
 {TRUNG}
 
