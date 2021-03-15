@@ -1,0 +1,28 @@
+@startuml
+
+interface DataBinder {}
+
+interface WebDataBinder implements DataBinder {}
+
+class WebExchangeDataBinder implements WebDataBinder {}
+
+class WebRequestDataBinder implements WebDataBinder {}
+
+class ServletRequestDataBinder implements WebDataBinder {}
+
+class ExtendedServletRequestDataBinder extends ServletRequestDataBinder {}
+
+' Strategy interface to handle the value returned from the invocation of a handler method .
+interface HandlerMethodReturnValueHandler {}
+
+' Strategy interface for resolving method parameters into argument values in the context of a given request.
+interface HandlerMethodArgumentResolver {}
+
+interface ServletModelAttributeMethodProcessor {}
+
+' Resolve @ModelAttribute annotated method arguments and handle return values from @ModelAttribute annotated methods.
+interface ModelAttributeMethodProcessor implements HandlerMethodReturnValueHandler, HandlerMethodArgumentResolver {}
+
+class ServletModelAttributeMethodProcessor implements ModelAttributeMethodProcessor {}
+
+@enduml
