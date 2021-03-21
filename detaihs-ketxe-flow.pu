@@ -1,0 +1,6 @@
+@startuml
+Mobile -> Server: send(sessionID, location)
+ 
+end ref
+
+@enduml

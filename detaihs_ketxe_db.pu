@@ -1,0 +1,27 @@
+@startuml
+
+class Location {
+    sessionID: Double
+    x: Double
+    y: Double
+    time: Int
+    veloc: Byte 
+    // veloc = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+}
+
+class StatusReport {
+    sessionID: String
+
+}
+
+class PartReport {
+    partID: Int
+    topX: Double
+    topY: Double
+    bottomX: Double
+    bottomY: Double
+    velocs: Byte[]
+    status: Byte
+}
+
+@enduml
