@@ -35,14 +35,14 @@ filter: Trả về mảng mới chứa tất cả phần tử thỏa mãn điề
 
 ```js
 self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"];
-function criteria(element) {
+function valid(element) {
   return element.includes('e')
 }
 // FIND ELEMENT HAS 'e' CHARACTER: 
-found_result = "apple"
+found_result = find(self_array, valid) // => "apple"
 
 // FILTER ELEMENTs HAS 'e' CHARACTER: 
-filtered_array = ["apple", "pear", "grape", "cherry", "strawberry", "blueberry"]
+filtered_array = filter(self_array, valid) // =>  ["apple", "pear", "grape", "cherry", "strawberry", "blueberry"]
 ```
 
 
