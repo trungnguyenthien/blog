@@ -148,7 +148,7 @@ Tạo một mảng gồm tất cả các phần tử duy nhất từ tất cả 
 
 Tạo một mảng gồm các phần tử duy nhất trong mỗi mảng, nhưng không phải là phần tử chung của tất cả các mảng.
 
-![img](https://p.ipic.vip/rqgnvk.jpg)
+<img src="https://p.ipic.vip/rqgnvk.jpg" alt="img" style="zoom:50%;" />
 
 
 ```js
