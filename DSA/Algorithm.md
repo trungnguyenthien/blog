@@ -61,8 +61,7 @@ flatten_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawb
 
 
 ## chunk(self_array, n)
-
-Chia mảng thành các mảng con có kích thước xác định.
+Tạo một mảng các phần tử được chia thành các nhóm có độ dài bằng `size`. Nếu `array` không thể chia đều, nhóm cuối cùng sẽ chứa các phần tử còn lại.
 
 ```js
 self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
@@ -114,7 +113,6 @@ grouped_result = {
 ```
 
 
-
 ## map(self_array, func_map)
 
 Tạo mảng mới từ việc xử lý các phần tử trong mảng hiện tại thông qua hàm `func_map`.
@@ -134,7 +132,6 @@ map_array = [5, 6, 6, 4, 3, 5]
 ## difference(self_array, other_array)
 
 Tạo một mảng gồm các phần tử của `self_array` không có trong `other_array`.
-
 
 ## intersection(self_array, other_array)
 
