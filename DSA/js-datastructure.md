@@ -35,6 +35,8 @@ function staticArray(size) {
   });
 }
 
+//------------------------------------------------
+//------------------------------------------------
 const fixedArray = staticArray(5);
 fixedArray[0] = 1; // OK
 fixedArray[4] = 5; // OK
@@ -75,6 +77,9 @@ Kiểu Array trong Javascript được cài đặt như một Dynamic Array.
 # STACK & QUEUE
 Kiểu Array trong Javascript cung cấp các phương thức tương đương các phương thức push, pop, dequeue, enqueue của Stack và Queue.
 Tuy nhiên nếu muốn việc viết code và đọc code thuận theo thuật toán (sử dụng Stack, Queue) ta có thể wrapper kiểu Array trong class Stack và Queue như sau:
+
+<details>
+  <summary>Click me</summary>
 
 ```js
 class Collection {
@@ -152,7 +157,8 @@ class Queue extends Collection {
   }
 }
 
-// --------------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
 
 // Sử dụng Stack
 let stack = new Stack();
@@ -180,6 +186,117 @@ console.log(queue.size());  // 2
 queue.print();  // 2,3
 ```
 
+</details>
+
 # SET
 JavaScript cung cấp kiểu dữ liệu `Set` kể từ ES6. 
 `Set` là một đối tượng cho phép bạn lưu trữ các giá trị duy nhất, nghĩa là không có hai phần tử nào có thể giống nhau trong một `Set`.
+
+<details>
+  <summary>Click me</summary>
+
+```js
+let mySet = new Set();
+// Thêm phần tử vào Set
+mySet.add(1);
+mySet.add(2);
+mySet.add(3);
+mySet.add(1);  // Sẽ không thêm vì 1 đã tồn tại trong Set
+console.log(mySet);  // Set { 1, 2, 3 }
+// Xóa phần tử khỏi Set
+mySet.delete(2);
+console.log(mySet);  // Set { 1, 3 }
+// Kiểm tra phần tử có tồn tại trong Set
+console.log(mySet.has(1));  // true
+console.log(mySet.has(2));  // false
+
+// Chuyển Set thành Array
+let myArray = Array.from(mySet);
+console.log(myArray);  // [1, 2, 3]
+
+// Tạo Set từ Array
+let myNewSet = new Set([1, 2, 3, 4, 5]);
+console.log(myNewSet);  // Set { 1, 2, 3, 4, 5 }
+
+```
+</details>
+
+# DICTIONARY
+Javascript hỗ trợ kiểu Map. 
+
+<details>
+  <summary>Click me</summary>
+
+```js
+// Tạo một Map
+let countryCapitals = new Map();
+
+// Thêm các cặp khóa-giá trị vào Map
+countryCapitals.set("USA", "Washington, D.C.");
+countryCapitals.set("France", "Paris");
+countryCapitals.set("Japan", "Tokyo");
+
+// Truy cập giá trị bằng khóa
+console.log(countryCapitals.get("USA"));    // Washington, D.C.
+console.log(countryCapitals.get("France")); // Paris
+console.log(countryCapitals.get("Japan"));  // Tokyo
+
+// Kiểm tra sự tồn tại của khóa
+console.log(countryCapitals.has("USA"));    // true
+console.log(countryCapitals.has("Germany")); // false
+
+// Xóa một cặp khóa-giá trị
+countryCapitals.delete("France");
+console.log(countryCapitals);  // Map { 'USA' => 'Washington, D.C.', 'Japan' => 'Tokyo' }
+
+// Trả về kích thước của Map
+console.log(countryCapitals.size);  // 2
+
+// Duyệt qua các cặp khóa-giá trị trong Map
+countryCapitals.forEach((capital, country) => {
+  console.log(`${country}: ${capital}`);
+});
+// Output:
+// USA: Washington, D.C.
+// Japan: Tokyo
+
+// Duyệt qua các cặp khóa-giá trị bằng for-of
+for (let [country, capital] of countryCapitals) {
+  console.log(`${country}: ${capital}`);
+}
+// Output:
+// USA: Washington, D.C.
+// Japan: Tokyo
+
+// Xóa tất cả các cặp khóa-giá trị trong Map
+countryCapitals.clear();
+console.log(countryCapitals);  // Map {}
+
+```
+
+</details>
+
+Nhưng (vì là Javascript nên) không cố định kiểu dữ liệu key-value. Cần chú ý khi code để tránh nhầm lẫn.
+
+<details>
+  <summary>Click me</summary>
+
+```js
+let map = new Map();
+
+// Sử dụng số làm khóa
+map.set(1, "one");
+
+// Sử dụng chuỗi làm khóa
+map.set("2", "two");
+
+console.log(map.get(1));    // "one"
+console.log(map.get("1"));  // undefined (vì "1" là chuỗi, khác với số 1)
+
+console.log(map.get("2"));  // "two"
+console.log(map.get(2));    // undefined (vì 2 là số, khác với chuỗi "2")
+
+```
+</details>
+
+# LINKEDLIST
