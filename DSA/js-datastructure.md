@@ -300,3 +300,5 @@ console.log(map.get(2));    // undefined (vì 2 là số, khác với chuỗi "2
 </details>
 
 # LINKEDLIST
+
+Javascript mặc định không hỗ trợ kiểu LinkedList. Nhưng thấy cũng ít nhu cầu sử dụng.
