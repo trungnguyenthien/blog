@@ -47,7 +47,12 @@ arrayOfInts.insert(0, at: 0)  // [0, 1, 2, 3, 4, 5, 6]
 arrayOfInts.remove(at: 0)  // [1, 2, 3, 4, 5, 6]
 ```
 
+</details>
+
 ### Array có cung cấp thao tác tương đương như `Stack` 
+
+<details>
+  <summary>Sample</summary>
 
 ```swift
 extension Array {
