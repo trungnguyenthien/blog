@@ -244,7 +244,9 @@ class CollectionUtils {
 
 <details>
   <summary>Click me</summary>
+  
 ```java
+
 public class Main {
 
     public static void sampleChunk() {
