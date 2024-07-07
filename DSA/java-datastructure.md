@@ -4,28 +4,28 @@
   <summary>Sample</summary>
 
 ```java
- // Khai báo và khởi tạo mảng tĩnh kiểu int
-        int[] intArray = new int[5];
+// Khai báo và khởi tạo mảng tĩnh kiểu int
+int[] intArray = new int[5];
 
-        // Khởi tạo giá trị cho mảng
-        intArray[0] = 10;
-        intArray[1] = 20;
-        intArray[2] = 30;
-        intArray[3] = 40;
-        intArray[4] = 50;
+// Khởi tạo giá trị cho mảng
+intArray[0] = 10;
+intArray[1] = 20;
+intArray[2] = 30;
+intArray[3] = 40;
+intArray[4] = 50;
 
-        // In các phần tử trong mảng
-        for (int i = 0; i < intArray.length; i++) {
-            System.out.println("Element at index " + i + ": " + intArray[i]);
-        }
+// In các phần tử trong mảng
+for (int i = 0; i < intArray.length; i++) {
+  System.out.println("Element at index " + i + ": " + intArray[i]);
+}
 
-        // Khai báo và khởi tạo mảng tĩnh kiểu String
-        String[] stringArray = {"Java", "Kotlin", "Swift", "JavaScript"};
+// Khai báo và khởi tạo mảng tĩnh kiểu String
+  String[] stringArray = {"Java", "Kotlin", "Swift", "JavaScript"};
 
-        // In các phần tử trong mảng
-        for (int i = 0; i < stringArray.length; i++) {
-            System.out.println("Element at index " + i + ": " + stringArray[i]);
-        }
+// In các phần tử trong mảng
+for (int i = 0; i < stringArray.length; i++) {
+  System.out.println("Element at index " + i + ": " + stringArray[i]);
+}
 ```
 
 </details>
