@@ -9,6 +9,8 @@ Swift cung cấp ba loại tập hợp chính, được biết đến như mản
 <img src="https://p.ipic.vip/elwkgp.png" alt="img" style="zoom:50%;" />
 
 # DYNAMIC ARRAY
+<details>
+  <summary>Sample</summary>
 
 ```swift
 # Các cách khai báo Array
@@ -23,6 +25,7 @@ let firstElement = arrayOfInts[0]  // 1
 let secondElement = arrayOfStrings[1]  // "Banana"
 ```
 
+</details>
 
 
 ### Array được cài đặt như một `Dynamic Array`.
@@ -32,6 +35,9 @@ Mỗi Array dự trữ một lượng bộ nhớ cụ thể (capacity) để lư
 Nơi lưu trữ mới có kích thước là bội số của kích thước nơi lưu trữ cũ. Chiến lược tăng trưởng theo cấp số nhân này có nghĩa là việc thêm một phần tử diễn ra trong thời gian hằng, trung bình hóa hiệu suất của nhiều thao tác thêm phần tử. Các thao tác thêm phần tử kích hoạt tái phân bổ có một chi phí hiệu suất, nhưng chúng xảy ra ít dần khi mảng trở nên lớn hơn.
 
 ### Array cung cấp các thao tác như một `List`
+
+<details>
+  <summary>Sample</summary>
 
 ```swift
 var arrayOfInts = [1, 2, 3]
@@ -72,7 +78,12 @@ extension Array {
 }
 ```
 
+</details>
+
 ### Array có cung cấp thao tác tương đương như `Queue` 
+
+<details>
+  <summary>Sample</summary>
 
 ```swift
 extension Array {
@@ -104,8 +115,14 @@ extension Array {
 }
 ```
 
+</details>
+
 # SET
-Swift hỗ trợ cấu trúc dữ liệu Set thông qua class Set như sau:
+Swift hỗ trợ cấu trúc dữ liệu Set thông qua class Set.
+
+<details>
+  <summary>Sample</summary>
+
 ```swift
 // Khai báo và khởi tạo Set
 var setA: Set<Int> = [1, 2, 3, 4, 5]
@@ -162,8 +179,14 @@ print("Set A after removing all elements: \(setA)")  // []
 
 ```
 
+</details>
+
 # DICTIONARY
-Swift hỗ trợ cấu trúc dữ liệu Set thông qua class Dictionary như sau:
+Swift hỗ trợ cấu trúc dữ liệu Set thông qua class Dictionary.
+
+<details>
+  <summary>Sample</summary>
+
 ```swift
 // Khai báo và khởi tạo Dictionary
 // Cách 1: Khai báo rỗng
@@ -227,11 +250,16 @@ print("Dictionary after removing all elements: \(dict)")  // [:]
 
 ```
 
+</details>
+
 # STATIC ARRAY
 Swift không hỗ trợ tạo Static Array
 
 # LINKED LIST
 Swift mặc định không support Linked List. Tuy nhiên Apple cung cấp package cấu trúc dữ liệu collection mở rộng, trong số đó có kiểu LinkedList
+
+<details>
+  <summary>Sample</summary>
 
 - SPM:  "https://github.com/apple/swift-collections.git"
 
@@ -256,3 +284,5 @@ for element in linkedList {
 }
 
 ```
+
+</details>
