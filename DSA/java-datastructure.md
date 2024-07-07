@@ -147,30 +147,10 @@ public class Main {
 
 </details>
 
-
-Queue trong Java là một cấu trúc dữ liệu tuyến tính tuân theo nguyên tắc FIFO (First-In-First-Out), tức là phần tử được thêm vào đầu tiên sẽ được lấy ra đầu tiên. 
-
-Java cung cấp giao diện `Queue` trong gói `java.util` và nhiều lớp cụ thể thực hiện giao diện này.
-
-### Các phương thức chính của Queue
-
-1. **Thêm phần tử**:
-   - `offer(E e)`: Thêm phần tử vào cuối hàng đợi, trả về `true` nếu thành công, `false` nếu không (trong trường hợp hàng đợi có giới hạn kích thước).
-
-2. **Lấy và xóa phần tử**:
-   - `poll()`: Lấy và xóa phần tử ở đầu hàng đợi, trả về phần tử hoặc `null` nếu hàng đợi rỗng.
-
-3. **Lấy phần tử mà không xóa**:
-   - `peek()`: Lấy phần tử ở đầu hàng đợi mà không xóa nó, trả về phần tử hoặc `null` nếu hàng đợi rỗng.
-
-4. **Kiểm tra hàng đợi rỗng**:
-   - `isEmpty()`: Kiểm tra xem hàng đợi có rỗng hay không, trả về `true` nếu rỗng, `false` nếu không.
-
-
-### Java cung cấp 3 class kế thừ từ Queue: 
-- **LinkedList**
-- **PriorityQueue**
-- **ArrayDeque**
+Java cung cấp giao diện `Queue` trong gói `java.util` và nhiều lớp cụ thể thực hiện giao diện này như: 
+- LinkedList
+- PriorityQueue
+- ArrayDeque
 
 <details>
   <summary>Queue</summary>
