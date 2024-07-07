@@ -2,7 +2,7 @@
 Javascript không support static array, tuy nhiên có thể tạo proxy cho kiểu array và ignore các method ảnh hưởng đến kích thước array.
 
 <details>
-  <summary>Click me</summary>
+  <summary>Sample</summary>
 
 ```js
 function staticArray(size) {
@@ -79,7 +79,7 @@ Kiểu Array trong Javascript cung cấp các phương thức tương đương c
 Tuy nhiên nếu muốn việc viết code và đọc code thuận theo thuật toán (sử dụng Stack, Queue) ta có thể wrapper kiểu Array trong class Stack và Queue như sau:
 
 <details>
-  <summary>Click me</summary>
+  <summary>Sample</summary>
 
 ```js
 class Collection {
@@ -193,7 +193,7 @@ JavaScript cung cấp kiểu dữ liệu `Set` kể từ ES6.
 `Set` là một đối tượng cho phép bạn lưu trữ các giá trị duy nhất, nghĩa là không có hai phần tử nào có thể giống nhau trong một `Set`.
 
 <details>
-  <summary>Click me</summary>
+  <summary>Sample</summary>
 
 ```js
 let mySet = new Set();
@@ -225,7 +225,7 @@ console.log(myNewSet);  // Set { 1, 2, 3, 4, 5 }
 Javascript hỗ trợ kiểu Map. 
 
 <details>
-  <summary>Click me</summary>
+  <summary>Sample</summary>
 
 ```js
 // Tạo một Map
@@ -279,7 +279,7 @@ console.log(countryCapitals);  // Map {}
 Nhưng (vì là Javascript nên) không cố định kiểu dữ liệu key-value. Cần chú ý khi code để tránh nhầm lẫn.
 
 <details>
-  <summary>Click me</summary>
+  <summary>Sample</summary>
 
 ```js
 let map = new Map();
