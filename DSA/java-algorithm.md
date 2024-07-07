@@ -1,3 +1,7 @@
+# class `CollectionUtils`
+
+<details>
+  <summary>Click me</summary>
 
 ```java
 import java.util.*;
@@ -234,11 +238,13 @@ class CollectionUtils {
 }
 ```
 
-SAMPLE
+</details>
 
+# SAMPLE
+
+<details>
+  <summary>Click me</summary>
 ```java
-
-
 public class Main {
 
     public static void sampleChunk() {
@@ -479,3 +485,5 @@ public class Main {
 }
 
 ```
+
+</details>
