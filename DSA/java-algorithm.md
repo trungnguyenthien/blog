@@ -141,19 +141,22 @@ class CollectionUtils {
 
     /**
      * Slices a list from start index to end index (exclusive).
+     * If end is greater than the list size, it returns elements to the end of the list.
      *
      * @param list the list to slice
      * @param start the start index (inclusive)
      * @param end the end index (exclusive)
      * @param <T> the type of elements in the list
-     * @return a list containing the elements from start index to end index
-     * @throws IndexOutOfBoundsException if start or end are out of bounds
+     * @return a list containing the elements from start index to end index or end of list
+     * @throws IndexOutOfBoundsException if start is out of bounds
      */
     public static <T> List<T> slice(List<T> list, int start, int end) {
-        if (start < 0 || end > list.size() || start > end) {
-            throw new IndexOutOfBoundsException("Invalid start or end index");
+        if (start < 0 || start >= list.size()) {
+            throw new IndexOutOfBoundsException("Invalid start index");
         }
-        return IntStream.range(start, end)
+        
+        int actualEnd = Math.min(end, list.size());
+        return IntStream.range(start, actualEnd)
                 .mapToObj(list::get)
                 .collect(Collectors.toList());
     }
@@ -244,7 +247,7 @@ class CollectionUtils {
 
 <details>
   <summary>Click me</summary>
-  
+
 ```java
 
 public class Main {
