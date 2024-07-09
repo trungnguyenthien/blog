@@ -5,10 +5,13 @@
 Sắp xếp mảng theo phương pháp so sánh của `func_compare`
 
 ```js
+
 self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
 
-// SORT `self_array`
+/* Sắp xếp theo alphabet ↓↓↓ */
+
 sorted_array = ["apple", "banana", "blueberry", "cherry", "grape", "kiwi", "mango", "orange", "pear", "strawberry"]
+
 
 ```
 
@@ -19,10 +22,13 @@ sorted_array = ["apple", "banana", "blueberry", "cherry", "grape", "kiwi", "mang
 Đảo ngược thứ tự các phần tử trong mảng `self_array`.
 
 ```js
+
 self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
 
-//REVERSE `self_array`
+/* Đảo thứ tự array trên ↓↓↓ */
+
 reversed_array = ["blueberry", "mango", "kiwi", "strawberry", "cherry", "grape", "pear", "banana", "orange", "apple"]
+
 ```
 
 
@@ -34,28 +40,48 @@ find: Trả về phần tử đầu tiên thỏa mãn điều kiện trong `func
 filter: Trả về mảng mới chứa tất cả phần tử thỏa mãn điều kiện trong  `func_valid`
 
 ```js
-self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"];
-function valid(element) {
-  return element.includes('e')
-}
-// FIND ELEMENT HAS 'e' CHARACTER: 
+
+self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
+
+/* FIND ELEMENT HAS 'e' CHARACTER ↓↓↓ */
 found_result = find(self_array, valid) // => "apple"
 
-// FILTER ELEMENTs HAS 'e' CHARACTER: 
-filtered_array = filter(self_array, valid) // =>  ["apple", "pear", "grape", "cherry", "strawberry", "blueberry"]
+/* FILTER ELEMENTs HAS 'e' CHARACTER ↓↓↓ */
+
+filtered_array = ["apple", "pear", "grape", "cherry", "strawberry", "blueberry"]
+
 ```
 
 
+```js
+
+self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"];
+
+/* FIND ELEMENT HAS 'e' CHARACTER ↓↓↓ */
+found_result = "apple"
+
+/* FILTER ELEMENTs HAS 'e' CHARACTER ↓↓↓ */
+filtered_array = ["apple", "pear", "grape", "cherry", "strawberry", "blueberry"]
+
+```
 
 ## flatten(self_array)
 
 Làm phẳng mảng lồng nhau (một cấp).
 
 ```js
-self_array = [["apple", "orange"], ["banana", "pear"], ["grape"], ["cherry", "strawberry"], ["kiwi", "mango", "blueberry"]]
 
-// FLATTEN `self_array`
+self_array = [
+  ["apple", "orange"], 
+  ["banana", "pear"], 
+  ["grape"], 
+  ["cherry", "strawberry"], 
+  ["kiwi", "mango", "blueberry"]
+]
+
+/* Làm phẳng array trên ↓↓↓ */
 flatten_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
+
 ```
 
 
@@ -64,14 +90,15 @@ flatten_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawb
 Tạo một mảng các phần tử được chia thành các nhóm có độ dài bằng `size`. Nếu `array` không thể chia đều, nhóm cuối cùng sẽ chứa các phần tử còn lại.
 
 ```js
+
 self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
 
-// CHUNK `self_array` WITH CHUNK SIZE IS '3'
+/* Chia nhỏ thành nhiều Array với độ dài là '3' ↓↓↓ */
 chunked_array = [
 	["apple", "orange", "banana"], 
 	["pear", "grape", "cherry"], 
 	["strawberry", "kiwi", "mango"], 
-  ["blueberry"]
+  ["blueberry"] // Array cuối có số phần tử ít hơn nếu không chia đều.
  ]
  
 ```
@@ -87,11 +114,18 @@ takeRight: Lấy n phần tử cuối cùng của mảng.
 slice: Trích xuất một phần của mảng.
 
 ```js
-self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberry", "kiwi", "mango", "blueberry"]
 
-// TAKE 3 ELEFMENT (FROM LEFT) 	=> ["apple", "orange", "banana"]
-// TAKE 3 ELEFMENT (FROM RIGHT) => ["kiwi", "mango", "blueberry"]
-// SLICE FROM (INDEX) 2 to < 5 	=> ["banana", "pear", "grape"]
+self_array = [
+  "0_apple", "1_orange", "2_banana", 
+  "3_pear", "4_grape", "5_cherry", 
+  "6_strawberry", "7_kiwi", "8_mango", 
+  "9_blueberry"
+]
+
+// TakeFirst(3) => ["0_apple", "1_orange", "2_banana"]
+// TakeLast(3)  => ["7_kiwi", "8_mango", "9_blueberry"]
+// Slice(2, 5) 	=> ["2_banana", "3_pear", "4_grape"]
+
 ```
 
 
@@ -101,15 +135,17 @@ self_array = ["apple", "orange", "banana", "pear", "grape", "cherry", "strawberr
 Nhóm các phần tử của mảng theo tiêu chí.
 
 ```js
+
 self_array = ["Alice", "Aaron", "Bob", "Charlie", "Catherine", "Carl", "David", "Daniel", "Diana", "Dorothy"]
 
-// GROUP `self_array` BY FIRST CHARACTER IN NAME
+/* Nhóm các phần tử có chữ ký tự đầu giống nhau ↓↓↓ */
 grouped_result = {
-  A: ["Alice", "Aaron"],          						// 2 tên bắt đầu bằng "A"
-  B: ["Bob"],                     						// 1 tên bắt đầu bằng "B"
-  C: ["Charlie", "Catherine", "Carl"],  			// 3 tên bắt đầu bằng "C"
-  D: ["David", "Daniel", "Diana", "Dorothy"]  // 4 tên bắt đầu bằng "D"
+  A: ["Alice", "Aaron"],          						// 2 name bắt đầu bằng "A"
+  B: ["Bob"],                     						// 1 name bắt đầu bằng "B"
+  C: ["Charlie", "Catherine", "Carl"],  			// 3 name bắt đầu bằng "C"
+  D: ["David", "Daniel", "Diana", "Dorothy"]  // 4 name bắt đầu bằng "D"
 }
+
 ```
 
 
@@ -118,9 +154,12 @@ grouped_result = {
 Tạo mảng mới từ việc xử lý các phần tử trong mảng hiện tại thông qua hàm `func_map`.
 
 ```js
+
 self_array = ["apple", "banana", "cherry", "date", "fig", "grape"]
 
-// MAP từ self_array thành mảng mới với bằng cách lấy chiều dài mỗi phần tử trong self_array.
+/* Map thành array mới, mỗi phần từ của array mới 
+ là chiều dài của các phần tử ở vị trí tương ứng của array hiện tại 
+ ↓↓↓ */
 map_array = [5, 6, 6, 4, 3, 5]
 
 ```
@@ -149,11 +188,21 @@ Tạo một mảng gồm các phần tử duy nhất trong mỗi mảng, nhưng 
 
 
 ```js
-let self_array = ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon"];
-let other_array = ["banana", "cherry", "elderberry", "fig", "grapefruit", "kiwi", "lime", "mango"];
 
-self_difference_with_other = ["apple", "date", "grape", "lemon"]
+self_array = ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon"];
+other_array = ["banana", "cherry", "elderberry", "fig", "grapefruit", "kiwi", "lime", "mango"];
+
+self_xor_other = ["apple", "date", "grape", "lemon", "elderberry", "grapefruit", "lime", "mango"]
+
+self_union_with_other = [
+  "apple", "banana", "cherry", "date", "fig", "grape", 
+  "kiwi", "lemon", "elderberry", "grapefruit", "lime", "mango"
+]
+
 self_intersecion_with_other = ["banana", "cherry", "fig", "kiwi"]
+
+self_difference_with_other = ["apple", "date", "grape", "lemon"]]
+
 self_union_with_other = ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon", "elderberry", "grapefruit", "lime", "mango"]
 self_xor_other = ["apple", "date", "grape", "lemon", "elderberry", "grapefruit", "lime", "mango"]
 ```
