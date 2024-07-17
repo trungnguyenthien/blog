@@ -1,17 +1,202 @@
-
 ```swift
-
 import Foundation
 
-extension Array {
+extension Array where Element: Hashable {
     /**
-     `Array` của ngôn ngữ swift cung cấp các hàm xử lý sau:
-     - sorted:  trả về một mảng mới chứa các phần tử của mảng ban đầu, được sắp xếp theo thứ tự mặc định hoặc theo tiêu chí do người dùng cung cấp.
-     - first: trả về phần tử đầu tiên của mảng, nếu mảng không rỗng; ngược lại, trả về nil.
-     - filter: trả về một mảng mới chứa các phần tử thỏa mãn điều kiện do người dùng cung cấp thông qua một closure.
-     - flatMap: Trả về một mảng mới bằng cách áp dụng closure lên từng phần tử của mảng và làm phẳng (flatten) kết quả.
+     Returns a new array with all unique elements from the current array, preserving the order of their first occurrence.
+     
+     This method filters out duplicate elements from the array while maintaining the original order of elements. Only the first occurrence of each element is kept in the resulting array.
+     
+     - Parameter uniq: A Boolean value that indicates whether to filter out duplicate elements.
+     - Returns: An array containing only the unique elements from the original array, in the order they first appeared if `uniq` is true.
+     
+     Example usage:
+     ```swift
+     let array = ["apple", "banana", "apple", "cherry", "banana", "date"]
+     let uniqueArrayTrue = array.filterUniq(true)
+     print(uniqueArrayTrue)  // Output: ["apple", "banana", "cherry", "date"]
+     let uniqueArrayFalse = array.filterUniq(false)
+     print(uniqueArrayFalse) // Output: ["apple", "banana", "apple", "cherry", "banana", "date"]
+     ```
      */
+    func filterUniq(_ uniq: Bool) -> [Element] {
+        guard uniq else { return self }
+        var seen: Set<Element> = []
+        return self.filter { element in
+            if seen.contains(element) {
+                return false
+            } else {
+                seen.insert(element)
+                return true
+            }
+        }
+    }
     
+    /**
+     Returns the elements in the current array that are not in the other array.
+     
+     - Parameters:
+        - other: The array to compare against.
+        - uniq: A Boolean value that indicates whether to filter out duplicate elements in the result.
+     - Returns: A new array containing elements that are in the current array but not in the other array.
+     
+     Example usage:
+     ```swift
+     let array1 = ["apple", "banana", "cherry", "apple"]
+     let array2 = ["banana", "date", "fig", "banana"]
+     let differenceArrayTrue = array1.difference(other: array2, uniq: true)
+     print(differenceArrayTrue)  // Output: ["apple", "cherry"]
+     let differenceArrayFalse = array1.difference(other: array2, uniq: false)
+     print(differenceArrayFalse) // Output: ["apple", "cherry", "apple"]
+     ```
+     */
+    func difference(other: [Element], uniq: Bool = false) -> [Element] {
+        // Dictionary to count occurrences of each element in `other`
+        var elementCount: [Element: Int] = [:]
+
+        // Populate the dictionary with counts of elements in `other`
+        for element in other {
+            elementCount[element, default: 0] += 1
+        }
+
+        // Filter `self` to only include elements not in `other`
+        return self.filter { element in
+            if let count = elementCount[element], count > 0 {
+                elementCount[element] = count - 1
+                return false
+            }
+            return true
+        }.filterUniq(uniq)
+    }
+    
+    /**
+     Combines the unique elements of the current array and the other array.
+     
+     - Parameters:
+        - other: The array to union with.
+        - uniq: A Boolean value that indicates whether to filter out duplicate elements in the result.
+     - Returns: A new array containing all unique elements from both the current array and the other array.
+     
+     Example usage:
+     ```swift
+     let array1 = ["apple", "banana", "cherry", "apple"]
+     let array2 = ["banana", "date", "fig", "banana"]
+     let unionArrayTrue = array1.union(other: array2, uniq: true)
+     print(unionArrayTrue)  // Output: ["apple", "banana", "cherry", "date", "fig"]
+     let unionArrayFalse = array1.union(other: array2, uniq: false)
+     print(unionArrayFalse) // Output: ["apple", "banana", "cherry", "apple", "date", "fig"]
+     ```
+     */
+    func union(other: [Element], uniq: Bool = false) -> [Element] {
+        var result: [Element] = []
+        var seen: [Element: Bool] = [:]
+
+        for element in self {
+            if seen[element] == nil {
+                result.append(element)
+                seen[element] = true
+            }
+        }
+
+        for element in other {
+            if seen[element] == nil {
+                result.append(element)
+                seen[element] = true
+            }
+        }
+
+        return result.filterUniq(uniq)
+    }
+    
+    /**
+     Returns elements that are in either the current array or the other array, but not in both.
+     
+     - Parameters:
+        - other: The array to perform XOR operation with.
+        - uniq: A Boolean value that indicates whether to filter out duplicate elements in the result.
+     - Returns: A new array containing elements that are in either the current array or the other array, but not in both.
+     
+     Example usage:
+     ```swift
+     let array1 = ["apple", "banana", "cherry", "apple"]
+     let array2 = ["banana", "date", "fig", "banana"]
+     let xorArrayTrue = array1.xor(other: array2, uniq: true)
+     print(xorArrayTrue)  // Output: ["apple", "cherry", "date", "fig"]
+     let xorArrayFalse = array1.xor(other: array2, uniq: false)
+     print(xorArrayFalse) // Output: ["apple", "cherry", "apple", "date", "fig"]
+     ```
+     */
+    func xor(other: [Element], uniq: Bool = false) -> [Element] {
+        var elementCounts: [Element: Int] = [:]
+        
+        // Count occurrences of elements in self
+        for element in self {
+            elementCounts[element, default: 0] += 1
+        }
+        
+        // Count occurrences of elements in other
+        for element in other {
+            elementCounts[element, default: 0] += 1
+        }
+        
+        var result: [Element] = []
+        
+        // Collect elements that appear exactly once
+        for element in self {
+            if elementCounts[element] == 1 {
+                result.append(element)
+            }
+        }
+        
+        for element in other {
+            if elementCounts[element] == 1 && !result.contains(element) {
+                result.append(element)
+            }
+        }
+        
+        return result.filterUniq(uniq)
+    }
+    
+    /**
+     Returns the common elements between the current array and the other array.
+     
+     - Parameters:
+        - other: The array to intersect with.
+        - uniq: A Boolean value that indicates whether to filter out duplicate elements in the result.
+     - Returns: A new array containing elements that are present in both the current array and the other array.
+     
+     Example usage:
+     ```swift
+     let array1 = ["apple", "banana", "cherry", "apple"]
+     let array2 = ["banana", "date", "fig", "banana"]
+     let intersectionArrayTrue = array1.intersection(other: array2, uniq: true)
+     print(intersectionArrayTrue)  // Output: ["banana"]
+     let intersectionArrayFalse = array1.intersection(other: array2, uniq: false)
+     print(intersectionArrayFalse) // Output: ["banana", "banana"]
+     ```
+     */
+    func intersection(other: [Element], uniq: Bool = false) -> [Element] {
+        var result: [Element] = []
+        var seen: [Element: Int] = [:]
+
+        // Count the occurrences of each element in `other`
+        for element in other {
+            seen[element, default: 0] += 1
+        }
+
+        // Iterate through `self` and add elements to the result if they are in `seen`
+        for element in self {
+            if let count = seen[element], count > 0 {
+                result.append(element)
+                seen[element]! -= 1
+            }
+        }
+
+        return result.filterUniq(uniq)
+    }
+}
+
+extension Array {
     /**
      Returns a new array with the elements of the original array in reverse order.
      
@@ -83,50 +268,6 @@ extension Array {
      */
     func grouped<G: Hashable>(by key: (Element) -> G) -> [G: [Element]] {
         return Dictionary(grouping: self, by: key)
-    }
-    
-    /**
-     Returns the elements in the current array that are not in the other array.
-     
-     - Parameter other: The array to compare against.
-     - Returns: A new array containing elements that are in the current array but not in the other array.
-     */
-    func difference(other: [Element]) -> [Element] where Element: Hashable {
-        let set = Set(other)
-        return self.filter { !set.contains($0) }
-    }
-    
-    /**
-     Returns the common elements between the current array and the other array.
-     
-     - Parameter other: The array to intersect with.
-     - Returns: A new array containing elements that are present in both the current array and the other array.
-     */
-    func intersection(other: [Element]) -> [Element] where Element: Hashable {
-        let set = Set(other)
-        return self.filter { set.contains($0) }
-    }
-    
-    /**
-     Combines the unique elements of the current array and the other array.
-     
-     - Parameter other: The array to union with.
-     - Returns: A new array containing all unique elements from both the current array and the other array.
-     */
-    func union(other: [Element]) -> [Element] where Element: Hashable {
-        return Array(Set(self).union(other))
-    }
-    
-    /**
-     Returns elements that are in either the current array or the other array, but not in both.
-     
-     - Parameter other: The array to perform XOR operation with.
-     - Returns: A new array containing elements that are in either the current array or the other array, but not in both.
-     */
-    func xor(other: [Element]) -> [Element] where Element: Hashable {
-        let set1 = Set(self)
-        let set2 = Set(other)
-        return Array(set1.symmetricDifference(set2))
     }
 }
 
@@ -254,7 +395,7 @@ class Sample {
     }
     
     func sampleDifference() {
-        let list = ["apple", "banana", "cherry", "date", "elderberry"]
+        let list = ["apple", "apple", "banana", "cherry", "date", "elderberry"]
         let other = ["banana", "date", "fig"]
         
         // Example 1: Difference with another array
@@ -326,6 +467,5 @@ class Sample {
 // Chạy tất cả các hàm sample
 let sample = Sample()
 sample.runAll()
-
 
 ```
